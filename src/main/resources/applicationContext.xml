@@ -7,9 +7,9 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="testBean"
-          class="ru.konst.springcourse.TestBean">
-        <constructor-arg value="Konstantin"/>
+    <!--Чтобы изменить музыку, нужно заменить ClassicalMusic на RockMusic-->
+    <bean id="MusicBean"
+          class="ru.konst.springcourse.ClassicalMusic">
     </bean>
 
 </beans>

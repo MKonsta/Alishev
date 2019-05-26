@@ -6,10 +6,11 @@ public class TestSpring {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml");
+        Music music = context.getBean("MusicBean", Music.class);
 
-        TestBean testBean = context.getBean("testBean", TestBean.class);
+        MusicPlayer player = new MusicPlayer(music);
 
-        System.out.println(testBean.getName());
+        player.playMusic();
 
         context.close();
     }

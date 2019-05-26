@@ -1,7 +1,11 @@
 package ru.konst.springcourse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MusicPlayer {
-    private Music music;
+
+    private List<Music> musicList = new ArrayList<>();
 
     private String name; // Название мцзыкального плеера
     private int volume; // громкость
@@ -23,18 +27,20 @@ public class MusicPlayer {
     }
 
     // Inversion of controle
-    public MusicPlayer(Music music) {
-        this.music = music;
+    public MusicPlayer(List<Music> musicListlist) {
+        this.musicList = musicListlist;
     }
 
     public MusicPlayer() {
     }
 
-    public void setMusic(Music music) {
-        this.music = music;
+    public void setMusicList(List<Music> musicList) {
+        this.musicList = musicList;
     }
 
     public void playMusic() {
-        System.out.println("Playing: " + music.getSong());
+        for (Music music : musicList) {
+            System.out.println("Playing: " + music.getSong());
+        }
     }
 }

@@ -7,18 +7,43 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:property-placeholder location="classpath:musicPlayer.properties" />
+
     <!--Чтобы изменить музыку, нужно заменить ClassicalMusic на RockMusic-->
-    <bean id="musicBean"
+    <bean id="rockMusic"
           class="ru.konst.springcourse.RockMusic">
     </bean>
+    <bean id="classicalMusic"
+          class="ru.konst.springcourse.ClassicalMusic">
+    </bean>
+    <bean id="rapMusic"
+          class="ru.konst.springcourse.RapMusic">
+    </bean>
+    <bean id="authMusic"
+          class="ru.konst.springcourse.AuthMusic">
+    </bean>
+
+    <bean id="musicListBean"
+          class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="rockMusic" />
+                <ref bean="classicalMusic" />
+                <ref bean="rapMusic" />
+                <ref bean="authMusic" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+
 
     <bean id="musicPlayer"
           class="ru.konst.springcourse.MusicPlayer">
-        <property name="music" ref="musicBean" />
+        <property name="musicList" ref="musicListBean" />
 
-        <property name="name" value="Gom player professional" />
+        <property name="name" value="${musicPlayer.name}" />
 
-        <property name="volume" value="100" />
+        <property name="volume" value="${musicPlayer.volume}" />
     </bean>
 
 </beans>

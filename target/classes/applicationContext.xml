@@ -14,7 +14,11 @@
 
     <bean id="musicPlayer"
           class="ru.konst.springcourse.MusicPlayer">
-        <constructor-arg ref="musicBean" />
+        <property name="music" ref="musicBean" />
+
+        <property name="name" value="Gom player professional" />
+
+        <property name="volume" value="100" />
     </bean>
 
 </beans>

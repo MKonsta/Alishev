@@ -7,6 +7,8 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:property-placeholder location="classpath:musicPlayer.properties" />
+
     <!--Чтобы изменить музыку, нужно заменить ClassicalMusic на RockMusic-->
     <bean id="musicBean"
           class="ru.konst.springcourse.RockMusic">
@@ -14,7 +16,11 @@
 
     <bean id="musicPlayer"
           class="ru.konst.springcourse.MusicPlayer">
-        <constructor-arg ref="musicBean" />
+        <property name="music" ref="musicBean" />
+
+        <property name="name" value="${musicPlayer.name}" />
+
+        <property name="volume" value="${musicPlayer.volume}" />
     </bean>
 
 </beans>

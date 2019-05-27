@@ -5,7 +5,7 @@ import java.util.List;
 
 public class MusicPlayer {
 
-    private List<Music> musicList = new ArrayList<>();
+    private Music music;
 
     private String name; // Название мцзыкального плеера
     private int volume; // громкость
@@ -27,20 +27,20 @@ public class MusicPlayer {
     }
 
     // Inversion of controle
-    public MusicPlayer(List<Music> musicListlist) {
-        this.musicList = musicListlist;
+
+
+    public MusicPlayer(Music music) {
+        this.music = music;
     }
 
     public MusicPlayer() {
     }
 
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
+    public void setMusic(Music music) {
+        this.music = music;
     }
 
     public void playMusic() {
-        for (Music music : musicList) {
-            System.out.println("Playing: " + music.getSong());
-        }
+        System.out.println(music.getSong());
     }
 }

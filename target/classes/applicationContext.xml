@@ -23,23 +23,11 @@
           class="ru.konst.springcourse.AuthMusic">
     </bean>
 
-    <bean id="musicListBean"
-          class="java.util.ArrayList">
-        <constructor-arg>
-            <list>
-                <ref bean="rockMusic" />
-                <ref bean="classicalMusic" />
-                <ref bean="rapMusic" />
-                <ref bean="authMusic" />
-            </list>
-        </constructor-arg>
-    </bean>
-
-
 
     <bean id="musicPlayer"
-          class="ru.konst.springcourse.MusicPlayer">
-        <property name="musicList" ref="musicListBean" />
+          class="ru.konst.springcourse.MusicPlayer"
+            scope="prototype">
+        <property name="music" ref="classicalMusic" />
 
         <property name="name" value="${musicPlayer.name}" />
 
